@@ -100,7 +100,7 @@ variable "ten_dot_what_cidr" {
 
 variable "astronomer_version" {
   description = "Version of the Astronomer platform installed"
-  default     = "0.12.4"
+  default     = "0.13.0"
   type        = string
 }
 
