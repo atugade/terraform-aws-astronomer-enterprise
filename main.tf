@@ -1,7 +1,9 @@
 module "aws" {
-  source  = "astronomer/astronomer-aws/aws"
-  version = "1.1.131"
+#  source  = "astronomer/astronomer-aws/aws"
+#  version = "1.1.131"
   # source                        = "../terraform-aws-astronomer-aws"
+
+  source                        = "git@github.com:atugade/terraform-aws-astronomer-aws.git?ref=dns_challenge_override"
   deployment_id                 = var.deployment_id
   admin_email                   = var.email
   route53_domain                = var.route53_domain
@@ -32,7 +34,8 @@ module "aws" {
 
   # if the TLS cert and key are provided, we will want to use
   # them instead of asking for a Let's Encrypt cert.
-  lets_encrypt = var.lets_encrypt
+  lets_encrypt                        = var.lets_encrypt
+  lets_encrypt_dns_challenge_override = var.lets_encrypt_dns_challenge_override
 }
 
 # Get the AWS_REGION used by the aws provider

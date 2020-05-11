@@ -126,6 +126,14 @@ variable "lets_encrypt" {
   type    = bool
 }
 
+variable "lets_encrypt_dns_challenge_override" {
+  description = "Override to allow passing in custom values into acme_certificate dns challenge configuration"
+  type        = map
+  default     = {
+      AWS_PROPAGATION_TIMEOUT = 900
+  }
+}
+
 variable "db_instance_type" {
   default = "db.r4.large"
   type    = string
